@@ -37,7 +37,6 @@ public class EstadoControle {
         return cadastrar(estado.get());
     }
 
-
     @PostMapping("/salvarEstado")
     public ModelAndView salvar(Estado estado, BindingResult result) {
         if (result.hasErrors()) {
