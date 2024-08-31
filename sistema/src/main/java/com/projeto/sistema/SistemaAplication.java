@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-@EnableOpenApi
 public class SistemaAplication {
     public static void main(String[] args) {
         SpringApplication.run(SistemaAplication.class, args);
