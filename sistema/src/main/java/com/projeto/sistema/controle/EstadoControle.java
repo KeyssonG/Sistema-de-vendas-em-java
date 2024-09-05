@@ -25,7 +25,7 @@ public class EstadoControle {
         return mv;
     }
 
-    @GetMapping("/listarEstados")
+    @GetMapping("/listarEstado")
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("administrativo/estados/lista");
         mv.addObject("listaEstados", estadoRepositorio.findAll());
@@ -38,7 +38,7 @@ public class EstadoControle {
         return cadastrar(estado.get());
     }
 
-    @DeleteMapping("/removerEstado/{id}")
+    @GetMapping("/removerEstado/{id}")
     public ModelAndView remover(@PathVariable("id") Long id) {
         Optional<Estado> estado = estadoRepositorio.findById(id);
         estadoRepositorio.delete(estado.get());
