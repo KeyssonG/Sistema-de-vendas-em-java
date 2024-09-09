@@ -15,6 +15,7 @@ public class Estado implements Serializable {
     private String sigla;
 
     public String getSigla() {
+
         return sigla;
     }
 
