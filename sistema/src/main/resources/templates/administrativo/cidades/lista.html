@@ -14,7 +14,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.dataTables.css" />
 
-    <title>CadastroEstado</title>
+    <title>CadastroCidade</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
@@ -53,25 +53,27 @@
                 <tr>
                     <td>ID</td>
                     <td>Nome</td>
-                    <td>Sigla</td>
+                    <td>CEP</td>
+                    <td>Estado</td>
                     <td>Ação</td>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="estado: ${listaEstados}">
-                    <td th:text="${estado.id}"></td>
-                    <td th:text="${estado.nome}"></td>
-                    <td th:text="${estado.sigla}"></td>
+                <tr th:each="cidade: ${listaCidades}">
+                    <td th:text="${cidade.id}"></td>
+                    <td th:text="${cidade.nome}"></td>
+                    <td th:text="${cidade.cep}"></td>
+                    <td th:text="${cidade.estado.nome}"></td>
                     <td colspan="2">
-                        <a th:href="@{/editarEstado/{id}(id=${estado.id})}"><i
+                        <a th:href="@{/editarCidade/{id}(id=${cidade.id})}"><i
                                 class="fa-solid fa-pen-to-square"></i></a>
-                        <a th:href="@{/removerEstado/{id}(id=${estado.id})}"><i class="fa-solid fa-trash"></i></a>
+                        <a th:href="@{/removerCidade/{id}(id=${cidade.id})}"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             </tbody>
         </table>
         <a class="btn btn-danger" href="/administrativo"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
-        <a class="btn btn-success" href="/cadastroEstado"><i class="fa-solid fa-plus"></i> Cadastrar</a>
+        <a class="btn btn-success" href="/cadastroCidade"><i class="fa-solid fa-plus"></i> Cadastrar</a>
 
 
     </div>
@@ -92,12 +94,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#tabela').DataTable({
-                language: {
-                    url: '//cdn.datatables.net/plug-ins/2.1.5/i18n/pt-BR.json',
-                },
-            });
+        $('#tabela').DataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/2.1.5/i18n/pt-BR.json',
+            },
         });
     </script>
 

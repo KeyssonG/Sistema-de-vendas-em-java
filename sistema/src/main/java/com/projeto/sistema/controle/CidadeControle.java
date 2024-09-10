@@ -23,7 +23,7 @@ public class CidadeControle {
     @GetMapping("/cadastroCidade")
     public ModelAndView cadastrar(Cidade cidade) {
         ModelAndView mv = new ModelAndView("administrativo/cidades/cadastro");
-        mv.addObject("Cidade", cidade);
+        mv.addObject("cidade", cidade);
         mv.addObject("listaEstados", estadoRepositorio.findAll());
         return mv;
     }
