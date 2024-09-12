@@ -14,7 +14,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.dataTables.css" />
 
-    <title>listaCidades</title>
+    <title>listaFuncionario</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
@@ -47,33 +47,45 @@
     </nav>
 
 
-    <div class="container">
+    <div class="container-fluid">
         <table class="table" id="tabela">
             <thead>
                 <tr>
                     <td>ID</td>
                     <td>Nome</td>
-                    <td>CEP</td>
-                    <td>Estado</td>
+                    <td>CPF</td>
+                    <td>telefone</td>
+                    <td>Endereco</td>
+                    <td>Numero</td>
+                    <td>Bairro</td>
+                    <td>E-mail</td>
+                    <td>Funcao</td>
+                    <td>Cidade</td>
                     <td>Ação</td>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="cidade: ${listaCidades}">
-                    <td th:text="${cidade.id}"></td>
-                    <td th:text="${cidade.nome}"></td>
-                    <td th:text="${cidade.cep}"></td>
-                    <td th:text="${cidade.estado.nome}"></td>
+                <tr th:each="funcionario: ${listaFuncionarios}">
+                    <td th:text="${funcionario.id}"></td>
+                    <td th:text="${funcionario.nome}"></td>
+                    <td th:text="${funcionario.cpf}"></td>
+                    <td th:text="${funcionario.telefone}"></td>
+                    <td th:text="${funcionario.endereco}"></td>
+                    <td th:text="${funcionario.numero}"></td>
+                    <td th:text="${funcionario.bairro}"></td>
+                    <td th:text="${funcionario.email}"></td>
+                    <td th:text="${funcionario.funcao}"></td>
+                    <td th:text="${funcionario.cidade.nome}"></td>
                     <td colspan="2">
-                        <a th:href="@{/editarCidade/{id}(id=${cidade.id})}"><i
+                        <a th:href="@{/editarFuncionario/{id}(id=${funcionario.id})}"><i
                                 class="fa-solid fa-pen-to-square"></i></a>
-                        <a th:href="@{/removerCidade/{id}(id=${cidade.id})}"><i class="fa-solid fa-trash"></i></a>
+                        <a th:href="@{/removerFuncionario/{id}(id=${funcionario.id})}"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             </tbody>
         </table>
         <a class="btn btn-danger" href="/administrativo"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
-        <a class="btn btn-success" href="/cadastroCidade"><i class="fa-solid fa-plus"></i> Cadastrar</a>
+        <a class="btn btn-success" href="/cadastroFuncionario"><i class="fa-solid fa-plus"></i> Cadastrar</a>
 
 
     </div>

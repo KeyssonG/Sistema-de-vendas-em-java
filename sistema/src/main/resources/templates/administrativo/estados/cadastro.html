@@ -18,7 +18,7 @@
     <a class="navbar-brand" href="#">
         <img src="/images/logo.png" width="35" height="30" class="d-inline-block align-top" alt="">
     </a>
-    <a class="navbar-brand" href="#">SalesTech</a>
+    <a class="navbar-brand" href="/administrativo">SalesTech</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
             aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
@@ -46,8 +46,10 @@
         <div class="form-group">
             <label for="id">ID:</label>
             <input type="text" readonly="true" class="form-control" id="id" th:field="*{id}">
-            <label for="nome">Nome Estado</label>
+            
+            <label for="nome">Nome Estado:</label>
             <input type="text" class="form-control" id="nome" th:field="*{nome}">
+            
             <label for="sigla">Sigla:</label>
             <input type="text" class="form-control" id="sigla" th:field="*{sigla}">
         </div>
