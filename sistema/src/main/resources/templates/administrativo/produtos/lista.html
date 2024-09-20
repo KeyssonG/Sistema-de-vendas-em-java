@@ -14,7 +14,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.dataTables.css" />
 
-    <title>listaEstado</title>
+    <title>listaProduto</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
@@ -52,26 +52,38 @@
             <thead>
                 <tr>
                     <td>ID</td>
-                    <td>Nome</td>
-                    <td>Sigla</td>
-                    <td>Ação</td>
+                    <td>Prod. Nome</td>
+                    <td>Cód. de Barras:</td>
+                    <td>Uni. de Medida:</td>
+                    <td>Estoque:</td>
+                    <td>Pre.de Custo:</td>
+                    <td>Pre.de Venda:</td>
+                    <td>Lucro:</td>
+                    <td>Mar. de Lucro:</td>
+                    <td>Opções</td>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="estado: ${listaEstados}">
-                    <td th:text="${estado.id}"></td>
-                    <td th:text="${estado.nome}"></td>
-                    <td th:text="${estado.sigla}"></td>
+                <tr th:each="produto: ${listaProdutos}">
+                    <td th:text="${produto.id}"></td>
+                    <td th:text="${produto.nome}"></td>
+                    <td th:text="${produto.codigoBarras}"></td>
+                    <td th:text="${produto.unidadeMedida}"></td>
+                    <td th:text="${produto.estoque}"></td>
+                    <td th:text="${produto.precoCusto}"></td>
+                    <td th:text="${produto.precoVenda}"></td>
+                    <td th:text="${produto.lucro}"></td>
+                    <td th:text="${produto.margemLucro}"></td>
                     <td colspan="2">
-                        <a th:href="@{/editarEstado/{id}(id=${estado.id})}"><i
+                        <a th:href="@{/editarProduto/{id}(id=${produto.id})}"><i
                                 class="fa-solid fa-pen-to-square"></i></a>
-                        <a th:href="@{/removerEstado/{id}(id=${estado.id})}"><i class="fa-solid fa-trash"></i></a>
+                        <a th:href="@{/removerProduto/{id}(id=${produto.id})}"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             </tbody>
         </table>
         <a class="btn btn-danger" href="/administrativo"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
-        <a class="btn btn-success" href="/cadastroEstado"><i class="fa-solid fa-plus"></i> Cadastrar</a>
+        <a class="btn btn-success" href="/cadastroProduto"><i class="fa-solid fa-plus"></i> Cadastrar</a>
 
 
     </div>
