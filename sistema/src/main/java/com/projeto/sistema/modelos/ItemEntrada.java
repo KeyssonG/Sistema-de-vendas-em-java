@@ -1,81 +1,12 @@
 package com.projeto.sistema.modelos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
-public class Entrada implements Serializable {
+public class ItemEntrada implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String nome;
-    private String obs;
-    private double valorTotal = 0.00;
-    private double quantidadeValor = 0.00;
-    private Date dataEntrada = new Date();
-    private Fornecedor fornecedor;
-
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    public Fornecedor getFornecedor() {
-        return fornecedor;
-    }
-
-    public void setFornecedor(Fornecedor fornecedor) {
-        this.fornecedor = fornecedor;
-    }
-
-    public Date getDataEntrada() {
-        return dataEntrada;
-    }
-
-    public void setDataEntrada(Date dataEntrada) {
-        this.dataEntrada = dataEntrada;
-    }
-
-    public double getQuantidadeValor() {
-        return quantidadeValor;
-    }
-
-    public void setQuantidadeValor(double quantidadeValor) {
-        this.quantidadeValor = quantidadeValor;
-    }
-
-    public double getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
-    public String getObs() {
-        return obs;
-    }
-
-    public void setObs(String obs) {
-        this.obs = obs;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public long getId() {
         return id;
@@ -85,6 +16,56 @@ public class Entrada implements Serializable {
         this.id = id;
     }
 
-    private Funcionario funcionario;
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Entrada getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(Entrada entrada) {
+        this.entrada = entrada;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public double getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(double quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private double quantidade;
+    private double valor;
+    @ManyToOne
+    private Entrada entrada;
+    @ManyToOne
+    private Produto produto;
+
+    public double getValorCusto() {
+        return valorCusto;
+    }
+
+    public void setValorCusto(double valorCusto) {
+        this.valorCusto = valorCusto;
+    }
+
+    private double valorCusto;
 
 }

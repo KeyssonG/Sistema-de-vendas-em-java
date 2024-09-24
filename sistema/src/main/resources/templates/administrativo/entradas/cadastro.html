@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>cadastroCidade</title>
+    <title>cadastroEntrada</title>
 </head>
 
 <body>
@@ -43,26 +43,86 @@
     </nav>
 
 
-    <div class="container">
-        <form action="/salvarCidade" th:object="${cidade}" method="POST">
+    <div class="container-fluid">
+        <form action="/salvarEntrada" th:object="${entrada}" method="POST">
             <div class="form-group">
                 <label for="id">ID:</label>
                 <input type="text" readonly="true" class="form-control" id="id" th:field="*{id}">
 
-                <label>Nome Cidade:</label>
-                <input type="text" required class="form-control" id="nome" th:field="*{nome}">
-
-                <label>CEP:</label>
-                <input type="text" required class="form-control" id="cep" th:field="*{cep}">
-
-                <label>Estado:</label>
-                <select th:field="*{estado}" class="form-control">
-                    <option th:each="est : ${listaEstados}" th:value="${est.id}" th:text="${est.nome}"></option>
+                <label>Observação</label>
+                <input type="number" class="form-control" th:field="*{obs}">
+                <label>Funcionário:</label>
+                <select th:field="*{funcionario}" class="form-control">
+                    <option th:each="est : ${listaFuncionarios}" th:value="${est.id}" th:text="${est.nome}">
+                    </option>
                 </select>
+                <label>fornecedores:</label>
+                <select th:field="*{fornecedor}" class="form-control">
+                    <option th:each="est : ${listaFornecedores}" th:value="${est.id}" th:text="${est.nome}">
+                    </option>
+                </select>
+
+                <label>Valor Total:</label>
+                <input type="number" class="form-control" th:field="*{valorTotal}">
+                <label>Quantidade Total:</label>
+                <input type="number" class="form-control" th:field="*{quantidadeTotal}">
+
+                <div class="form-row" th:object="${itemEntrada}">
+                    <label>Produtos:</label>
+                    <select th:field="*{produto}" class="form-control">
+                        <option th:each="est : ${listaProdutos}" th:value="${est.id}" th:text="${est.nome}">
+                        </option>
+                    </select>
+                    <label>Quantidade:</label>
+                    <input type="number" class="form-control" th:field="*{quantidade}">
+
+                    <label>Valor de Custo:</label>
+                    <input type="number" class="form-control" th:field="*{valorCusto}">
+
+                    <label>Valor de venda:</label>
+                    <input type="number" class="form-control" th:field="*{valor}">
+
+                    <button name="acao" th:value="itens" type="submit" class="btn btn-primary">Adicionar</button>
+                </div>
+
+                <table class="table" id="tabela">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Produto</td>
+                            <td>Quantidade </td>
+                            <td>Valor Custo</td>
+                            <td>Valor Venda</td>
+                            <td>Opções</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="itemEntrada: ${listaItemEntrada}">
+                            <td th:text="${itemEntrada.id}"></td>
+                            <td th:text="${itemEntrada.produto.nome}"></td>
+                            <td th:text="${itemEntrada.quantidade}"></td>
+                            <td th:text="${itemEntrada.valorCusto}"></td>
+                            <td th:text="${itemEntrada.valorVenda}"></td>
+                            <td colspan="2">
+                                <a th:href="@{/editarEstado/{id}(id=${itemEntrada.id})}"><i
+                                        class="fa-solid fa-pen-to-square"></i></a>
+                                <a th:href="@{/removerEstado/{id}(id=${itemEntrada.id})}"><i
+                                        class="fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <a href=""><button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i>Salvar</button></a>
+
+
+
+
+            <a href="">
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i>Salvar
+                </button>
+            </a>
             <a class="btn btn-danger" href="/administrativo"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
-            <a class="btn btn-success" href="/listarCidade"><i class="fa-solid fa-list"></i> Listar</a>
+            <a class="btn btn-success" href="/listarEntrada"><i class="fa-solid fa-list"></i> Listar</a>
         </form>
     </div>
 

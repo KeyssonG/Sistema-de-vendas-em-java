@@ -1,59 +1,89 @@
 package com.projeto.sistema.controle;
 
-import com.projeto.sistema.modelos.Cidade;
-import com.projeto.sistema.repositorios.CidadeRepositorio;
-import com.projeto.sistema.repositorios.EstadoRepositorio;
+import com.projeto.sistema.modelos.Entrada;
+import com.projeto.sistema.modelos.ItemEntrada;
+import com.projeto.sistema.repositorios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
-public class CidadeControle {
+public class EntradaControle {
     @Autowired
-    private CidadeRepositorio cidadeRepositorio;
+    private EntradaRepositorio entradaRepositorio;
     @Autowired
-    private EstadoRepositorio estadoRepositorio;
+    private ItemEntradaRepositorio itemEntradaRepositorio;
+    @Autowired
+    private ProdutoRepositorio produtoRepositorio;
+    @Autowired
+    private FuncionarioRepositorio funcionarioRepositorio;
+    @Autowired
+    private FornecedorRepositorio fornecedorRepositorio;
 
-    @GetMapping("/cadastroCidade")
-    public ModelAndView cadastrar(Cidade cidade) {
-        ModelAndView mv = new ModelAndView("administrativo/cidades/cadastro");
-        mv.addObject("cidade", cidade);
-        mv.addObject("listaEstados", estadoRepositorio.findAll());
+    private List<ItemEntrada> listaItemEntrada = new ArrayList<ItemEntrada>();
+
+    @GetMapping("/cadastroEntrada")
+    public ModelAndView cadastrar(Entrada entrada, ItemEntrada itemEntrada) {
+        ModelAndView mv = new ModelAndView("administrativo/entradas/cadastro");
+        mv.addObject("entrada", entrada);
+        mv.addObject("itemEntrada", itemEntrada);
+        mv.addObject("listaItemEntrada", this.listaItemEntrada);
+        mv.addObject("listaFuncionarios", funcionarioRepositorio.findAll());
+        mv.addObject("listaFornecedores", fornecedorRepositorio.findAll());
+        mv.addObject("listaProdutos", produtoRepositorio.findAll());
         return mv;
     }
 
-    @GetMapping("/listarCidade")
+    @GetMapping("/listarEntrada")
     public ModelAndView listar() {
-        ModelAndView mv = new ModelAndView("administrativo/cidades/lista");
-        mv.addObject("listaCidades", cidadeRepositorio.findAll());
+        ModelAndView mv = new ModelAndView("administrativo/entradas/lista");
+        mv.addObject("listaEntradas", entradaRepositorio.findAll());
         return mv;
     }
 
-    @GetMapping("/editarCidade/{id}")
+    /*
+    @GetMapping("/editarEntrada/{id}")
     public ModelAndView editar(@PathVariable("id") Long id) {
-        Optional<Cidade> cidade = cidadeRepositorio.findById(id);
-        return cadastrar(cidade.get());
+        Optional<Entrada> entrada = entradaRepositorio.findById(id);
+        return cadastrar(entrada.get());
     }
+    */
 
-    @GetMapping("/removerCidade/{id}")
+/*
+    @GetMapping("/removerEntrada/{id}")
     public ModelAndView remover(@PathVariable("id") Long id) {
-        Optional<Cidade> cidade = cidadeRepositorio.findById(id);
-        cidadeRepositorio.delete(cidade.get());
+        Optional<Entrada> entrada = entradaRepositorio.findById(id);
+        entradaRepositorio.delete(entrada.get());
         return listar();
     }
 
-    @PostMapping("/salvarCidade")
-    public ModelAndView salvar(Cidade cidade, BindingResult result) {
+ */
+
+    @PostMapping("/salvarEntrada")
+    public ModelAndView salvar(String acao, Entrada entrada, ItemEntrada itemEntrada, BindingResult result) {
         if (result.hasErrors()) {
-            return cadastrar(cidade);
+            return cadastrar(entrada, itemEntrada);
         }
-        cidadeRepositorio.saveAndFlush(cidade);
-        return cadastrar(new Cidade());
+
+        if (acao.equals("itens")) {
+            this.listaItemEntrada.add(itemEntrada);
+        }
+
+        entradaRepositorio.saveAndFlush(entrada);
+        return cadastrar(new Entrada(), new ItemEntrada());
+    }
+
+    public List<ItemEntrada> getListaItemEntrada() {
+        return listaItemEntrada;
+    }
+
+    public void setListaItemEntrada(List<ItemEntrada> listaItemEntrada) {
+        this.listaItemEntrada = listaItemEntrada;
     }
 }
