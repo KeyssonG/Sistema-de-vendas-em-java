@@ -37,7 +37,8 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-                <button class="btn btn-outline-success-light my-2 my-sm-0" type="submit">Pesquisar</button>
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
+
             </form>
         </div>
     </nav>
@@ -50,7 +51,7 @@
                 <input type="text" readonly="true" class="form-control" id="id" th:field="*{id}">
 
                 <label>Observação</label>
-                <input type="number" class="form-control" th:field="*{obs}">
+                <input type="text" class="form-control" th:field="*{obs}">
                 <label>Funcionário:</label>
                 <select th:field="*{funcionario}" class="form-control">
                     <option th:each="est : ${listaFuncionarios}" th:value="${est.id}" th:text="${est.nome}">
@@ -63,7 +64,8 @@
                 </select>
 
                 <label>Valor Total:</label>
-                <input type="number" class="form-control" th:field="*{valorTotal}">
+                <input type="number" step="0.01" class="form-control" th:field="*{valorTotal}">
+
                 <label>Quantidade Total:</label>
                 <input type="number" class="form-control" th:field="*{quantidadeTotal}">
 
@@ -77,10 +79,10 @@
                     <input type="number" class="form-control" th:field="*{quantidade}">
 
                     <label>Valor de Custo:</label>
-                    <input type="number" class="form-control" th:field="*{valorCusto}">
+                    <input type="number" step="0.01" class="form-control" th:field="*{valorCusto}">
 
                     <label>Valor de venda:</label>
-                    <input type="number" class="form-control" th:field="*{valor}">
+                    <input type="number" step="0.01" class="form-control" th:field="*{valor}">
 
                     <button name="acao" th:value="itens" type="submit" class="btn btn-primary">Adicionar</button>
                 </div>
@@ -102,7 +104,7 @@
                             <td th:text="${itemEntrada.produto.nome}"></td>
                             <td th:text="${itemEntrada.quantidade}"></td>
                             <td th:text="${itemEntrada.valorCusto}"></td>
-                            <td th:text="${itemEntrada.valorVenda}"></td>
+                            <td th:text="${itemEntrada.valor}"></td>
                             <td colspan="2">
                                 <a th:href="@{/editarEstado/{id}(id=${itemEntrada.id})}"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
@@ -117,10 +119,10 @@
 
 
 
-            <a href="">
-                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i>Salvar
-                </button>
-            </a>
+            <button type="submit" name="acao" th:value="salvar" class="btn btn-primary">
+                <i class="fa-solid fa-floppy-disk"></i>Salvar
+            </button>
+
             <a class="btn btn-danger" href="/administrativo"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
             <a class="btn btn-success" href="/listarEntrada"><i class="fa-solid fa-list"></i> Listar</a>
         </form>
@@ -140,11 +142,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
         integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $(document).ready(function () {
-            $('#cep').mask('00000-000');
-        });
-    </script>
+
 </body>
 
 </html>

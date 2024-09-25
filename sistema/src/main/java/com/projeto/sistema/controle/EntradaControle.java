@@ -2,6 +2,7 @@ package com.projeto.sistema.controle;
 
 import com.projeto.sistema.modelos.Entrada;
 import com.projeto.sistema.modelos.ItemEntrada;
+import com.projeto.sistema.modelos.Produto;
 import com.projeto.sistema.repositorios.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class EntradaControle {
@@ -73,11 +75,27 @@ public class EntradaControle {
 
         if (acao.equals("itens")) {
             this.listaItemEntrada.add(itemEntrada);
-        }
+        } else if (acao.equals("salvar")) {
+            entradaRepositorio.saveAndFlush(entrada);
 
-        entradaRepositorio.saveAndFlush(entrada);
-        return cadastrar(new Entrada(), new ItemEntrada());
+            for (ItemEntrada it : listaItemEntrada) {
+                it.setEntrada(entrada);
+                itemEntradaRepositorio.saveAndFlush(itemEntrada);
+
+                Optional<Produto> prod = produtoRepositorio.findById(it.getProduto().getId());
+                Produto produto = prod.get();
+                produto.setEstoque(produto.getEstoque() + it.getQuantidade());
+                produto.setPrecoVenda(it.getValor());
+                produto.setPrecoCusto(it.getValorCusto());
+                produtoRepositorio.saveAndFlush(produto);
+
+                this.listaItemEntrada = new ArrayList<>();
+            }
+            return cadastrar(new Entrada(), new ItemEntrada());
+        }
+        return cadastrar(entrada, new ItemEntrada());
     }
+
 
     public List<ItemEntrada> getListaItemEntrada() {
         return listaItemEntrada;
