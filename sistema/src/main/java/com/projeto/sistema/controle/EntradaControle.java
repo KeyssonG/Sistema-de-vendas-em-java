@@ -75,7 +75,7 @@ public class EntradaControle {
 
         if (acao.equals("itens")) {
             this.listaItemEntrada.add(itemEntrada);
-            entrada.setValorTotal(entrada.getValorTotal() + itemEntrada.getValor());
+            entrada.setValorTotal(entrada.getValorTotal() + (itemEntrada.getValor() * itemEntrada.getQuantidade()));
             entrada.setQuantidadeTotal(entrada.getQuantidadeTotal() + itemEntrada.getQuantidade());
 
         } else if (acao.equals("salvar")) {
