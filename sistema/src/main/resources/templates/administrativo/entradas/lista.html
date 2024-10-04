@@ -64,6 +64,7 @@
                     <td th:text="${entrada.id}"></td>
                     <td th:text="${entrada.fornecedor.nome}"></td>
                     <td th:text="${entrada.funcionario.nome}"></td>
+                    <td th:text="${entrada.dataEntrada}"></td>
                     <td th:text="${entrada.valorTotal}"></td>
                     <td colspan="2">
                         <a th:href="@{/editarEntrada/{id}(id=${entrada.id})}"><i
