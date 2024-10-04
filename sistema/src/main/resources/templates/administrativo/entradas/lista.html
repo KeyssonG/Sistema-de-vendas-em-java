@@ -14,7 +14,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.dataTables.css" />
 
-    <title>listaCidades</title>
+    <title>listaentradas</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
@@ -52,28 +52,29 @@
             <thead>
                 <tr>
                     <td>ID</td>
-                    <td>Nome</td>
-                    <td>CEP</td>
-                    <td>Estado</td>
+                    <td>Nome Fornecedor</td>
+                    <td>Nome Funcionario</td>
+                    <td>Data Entrada</td>
+                    <td>Valor Total</td>
                     <td>Opções</td>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="cidade: ${listaCidades}">
-                    <td th:text="${cidade.id}"></td>
-                    <td th:text="${cidade.nome}"></td>
-                    <td th:text="${cidade.cep}"></td>
-                    <td th:text="${cidade.estado.nome}"></td>
+                <tr th:each="entrada: ${listaEntradas}">
+                    <td th:text="${entrada.id}"></td>
+                    <td th:text="${entrada.fornecedor.nome}"></td>
+                    <td th:text="${entrada.funcionario.nome}"></td>
+                    <td th:text="${entrada.valorTotal}"></td>
                     <td colspan="2">
-                        <a th:href="@{/editarCidade/{id}(id=${cidade.id})}"><i
+                        <a th:href="@{/editarEntrada/{id}(id=${entrada.id})}"><i
                                 class="fa-solid fa-pen-to-square"></i></a>
-                        <a th:href="@{/removerCidade/{id}(id=${cidade.id})}"><i class="fa-solid fa-trash"></i></a>
+                        <a th:href="@{/removerEntrada/{id}(id=${entrada.id})}"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             </tbody>
         </table>
         <a class="btn btn-danger" href="/administrativo"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
-        <a class="btn btn-success" href="/cadastroCidade"><i class="fa-solid fa-plus"></i> Cadastrar</a>
+        <a class="btn btn-success" href="/cadastroEntrada"><i class="fa-solid fa-plus"></i> Cadastrar</a>
 
 
     </div>
