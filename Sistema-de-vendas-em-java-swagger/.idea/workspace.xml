@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2de36065-b323-499c-ab93-534693071a84" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com/projeto/sistema/SistemaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/java/com/projeto/sistema/EnableOpenApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/java/com/projeto/sistema/SistemaAplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/main/java/com/projeto/sistema/SistemaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/java/com/projeto/sistema/configuracaoBancoDeDados.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/main/java/com/projeto/sistema/configuracao/configuracaoBancoDeDados.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/java/com/projeto/sistema/controle/EstadoControle.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/main/java/com/projeto/sistema/controle/EstadoControle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/java/com/projeto/sistema/controle/principalControle.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/main/java/com/projeto/sistema/controle/principalControle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/java/com/projeto/sistema/modelos/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/main/java/com/projeto/sistema/modelos/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/java/com/projeto/sistema/repositorios/EstadoRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/main/java/com/projeto/sistema/repositorios/EstadoRepositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/resources/static/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/main/resources/static/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/resources/templates/administrativo/estados/cadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/main/resources/templates/administrativo/estados/cadastro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/resources/templates/administrativo/estados/lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/main/resources/templates/administrativo/estados/lista.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/main/resources/templates/administrativo/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/main/resources/templates/administrativo/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sistema-de-vendas-em-java/sistema/src/test/java/com/projeto/sistema/SistemaApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sistema-de-vendas-em-java/com.projeto.sistema/src/test/java/com/projeto/sistema/SistemaApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Sistema-de-vendas-em-java" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2lhNFeXooYFeQd4x7Pt6Sz9WbQV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.SistemaApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/keysson/Documents/Sistema-de-vendas-em-java"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="SistemaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.projeto.sistema.SistemaApplication" />
+      <module name="sistema" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.projeto.sistema.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SistemaApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2de36065-b323-499c-ab93-534693071a84" name="Changes" comment="" />
+      <created>1725628245676</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725628245676</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -49,13 +50,12 @@ public class EntradaControle {
         return mv;
     }
 
-    /*
     @GetMapping("/editarEntrada/{id}")
     public ModelAndView editar(@PathVariable("id") Long id) {
         Optional<Entrada> entrada = entradaRepositorio.findById(id);
-        return cadastrar(entrada.get());
+        this.listaItemEntrada = itemEntradaRepositorio.BuscarPorEntrada(id);
+        return cadastrar(entrada.get(), new ItemEntrada());
     }
-    */
 
 /*
     @GetMapping("/removerEntrada/{id}")
@@ -83,7 +83,7 @@ public class EntradaControle {
 
             for (ItemEntrada it : listaItemEntrada) {
                 it.setEntrada(entrada);
-                itemEntradaRepositorio.saveAndFlush(itemEntrada);
+                itemEntradaRepositorio.saveAndFlush(it);
 
                 Optional<Produto> prod = produtoRepositorio.findById(it.getProduto().getId());
                 Produto produto = prod.get();
@@ -96,6 +96,7 @@ public class EntradaControle {
             }
             return cadastrar(new Entrada(), new ItemEntrada());
         }
+
         return cadastrar(entrada, new ItemEntrada());
     }
 
